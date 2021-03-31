@@ -106,14 +106,22 @@
                     <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
+                        {% if info.buyer_public %}
                           <span class="mb-0 text-sm">{{ info.buyer }}</span>
+                        {% else %}
+                          <span class="mb-0 text-sm">********</span>
+                        {% endif%}
                         </div>
                       </div>
                     </th>
                     <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
+                        {% if info.seller_public %}
                           <span class="mb-0 text-sm">{{ info.seller }}</span>
+                        {% else %}
+                          <span class="mb-0 text-sm">********</span>
+                        {% endif%}
                         </div>
                       </div>
                     </th>
