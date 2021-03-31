@@ -8,7 +8,7 @@ class Home(generic.ListView):
     template_name = 'home.html'
 
     def get_queryset(self):
-        trades = CompletedTrade.objects.all()[:8]
+        trades = CompletedTrade.objects.all().order_by('-created_at')[:8]
         stats = Statistic.objects.get(id=1)
 
         query_set = {
