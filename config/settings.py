@@ -13,7 +13,7 @@ SECRET_KEY = 'f*+g!w2q)7o%48)#&6=)_jr)m9kc9f^6)-sexxabj2ws6!2i%)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tnbcrow.pythonanywhere.com']
 
 
 # Application definition
