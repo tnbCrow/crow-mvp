@@ -9,11 +9,13 @@ class CompletedTrade(models.Model):
     uuid = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     buyer = models.CharField(max_length=63)
     seller = models.CharField(max_length=63)
+    agent = models.CharField(max_length=63)
     amount = models.PositiveBigIntegerField()
     rate = models.IntegerField()
     
     buyer_public = models.BooleanField(default=False)
     seller_public = models.BooleanField(default=False)
+    agent_public = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
