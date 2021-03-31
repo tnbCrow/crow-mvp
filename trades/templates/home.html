@@ -103,6 +103,7 @@
                   <tr>
                     <th scope="col">Buyer</th>
                     <th scope="col">Seller</th>
+                    <th scope="col">Agent</th>
                     <th scope="col">Rate</th>
                     <th scope="col">Amount</th>
                     <th scope="col">At</th>
@@ -127,6 +128,17 @@
                         <div class="media-body">
                         {% if info.seller_public %}
                           <span class="mb-0 text-sm">{{ info.seller }}</span>
+                        {% else %}
+                          <span class="mb-0 text-sm">********</span>
+                        {% endif%}
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                        {% if info.agent_public %}
+                          <span class="mb-0 text-sm">{{ info.agent }}</span>
                         {% else %}
                           <span class="mb-0 text-sm">********</span>
                         {% endif%}
