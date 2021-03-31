@@ -34,7 +34,7 @@ class Statistic(models.Model):
 def save_statistics(sender, instance, *args, **kwargs):
 
     stat = Statistic.objects.get(id=1)
-    weighted_rate = (stat.rate * stat.amount + instance.rate * instance.amount ) / ( stat.amount + instance.amount)
+    weighted_rate = (stat.rate * stat.total_coins + instance.rate * instance.amount ) / ( stat.total_coins + instance.amount)
     stat.total_escrows += 1
     stat.total_coins += instance.amount
     stat.rate = weighted_rate
