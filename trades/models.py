@@ -14,4 +14,12 @@ class CompletedTrade(models.Model):
 
     def __str__(self):
         return f'{self.buyer}-{self.seller}:{self.amount}@{self.rate}'
-    
+
+
+class Statistic(models.Model):
+    total_escrows = models.IntegerField()
+    total_coins = models.IntegerField()
+    rate = models.IntegerField()
+
+    def __str__(self):
+        return f'Trades:{total_escrows},Coins:{total_coins},Rate:{rate}'
