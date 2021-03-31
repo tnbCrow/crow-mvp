@@ -1,5 +1,8 @@
 from uuid import uuid4
+
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 class CompletedTrade(models.Model):
@@ -26,3 +29,13 @@ class Statistic(models.Model):
 
     def __str__(self):
         return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.rate}'
+
+@receiver(post_save, sender=CompletedTrade)
+def save_statistics(sender, instance, *args, **kwargs):
+
+    stat = Statistic.objects.get(id=1)
+    rate = (stat.rate + instance.rate) / 2
+    stat.total_escrows += 1
+    stat.total_coins += instance.amount
+    stat.rate = rate
+    stat.save()
