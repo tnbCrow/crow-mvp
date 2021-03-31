@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class CompletedTrades(models.Model):
+class CompletedTrade(models.Model):
     buyer = models.CharField(max_length=63)
     seller = models.CharField(max_length=63)
     amount = models.PositiveBigIntegerField()
