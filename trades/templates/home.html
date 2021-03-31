@@ -1,0 +1,226 @@
+{% load static %}
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
+<link href="{% url 'trades/argon.css' %}" rel="stylesheet">
+
+<body class="bg-default">
+  <div class="main-content">
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+      <div class="container-fluid">
+        <h2 class="mb-5 text-white">tnbCrow manual escrow stats</h2>
+        <div class="header-body">
+          <div class="row">
+            <div class="col-xl-4 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Escrows</h5>
+                      <span class="h2 font-weight-bold mb-0">350,897</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                        <i class="fas fa-chart-bar"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-nowrap">Total Escrows Completed</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Coins</h5>
+                      <span class="h2 font-weight-bold mb-0">2,356</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                        <i class="fas fa-chart-pie"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-nowrap">Total coins escrowed</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h5 class="card-title text-uppercase text-muted mb-0">Rate</h5>
+                      <span class="h2 font-weight-bold mb-0">0.224</span>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                        <i class="fas fa-percent"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mt-3 mb-0 text-muted text-sm">
+                    <span class="text-nowrap">Average Rate of Coin</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+  </div>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      <div class="row">
+
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Completed Trades</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Buyer</th>
+                    <th scope="col">Seller</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">hussu#9966</span>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">thenewboston#2734</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i> 0.26
+                      </span>
+                    </td>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">50,000</span>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">********</span>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">hussu#2734</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i> 0.035
+                      </span>
+                    </td>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">196</span>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">test#9966</span>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">another#2734</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i> 1.00
+                      </span>
+                    </td>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">5,000</span>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer py-4">
+              <nav aria-label="...">
+                <ul class="pagination justify-content-end mb-0">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">
+                      <i class="fas fa-angle-left"></i>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">
+                      <i class="fas fa-angle-right"></i>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon Dashboard</a> by Creative Tim</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
