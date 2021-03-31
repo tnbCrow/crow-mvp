@@ -1,7 +1,9 @@
+from uuid import uuid4
 from django.db import models
 
 # Create your models here.
 class CompletedTrade(models.Model):
+    uuid = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     buyer = models.CharField(max_length=63)
     seller = models.CharField(max_length=63)
     amount = models.PositiveBigIntegerField()
