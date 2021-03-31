@@ -22,4 +22,4 @@ class Statistic(models.Model):
     rate = models.IntegerField()
 
     def __str__(self):
-        return f'Trades:{total_escrows},Coins:{total_coins},Rate:{rate}'
+        return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.rate}'
