@@ -33,11 +33,12 @@ class Statistic(models.Model):
         return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.rate}'
 
 @receiver(post_save, sender=CompletedTrade)
-def save_statistics(sender, instance, *args, **kwargs):
-
-    stat = Statistic.objects.get(id=1)
-    weighted_rate = (stat.rate * stat.total_coins + instance.rate * instance.amount ) / ( stat.total_coins + instance.amount)
-    stat.total_escrows += 1
-    stat.total_coins += instance.amount
-    stat.rate = weighted_rate
-    stat.save()
+def save_statistics(sender, instance, created, **kwargs):
+    
+    if created:
+        stat = Statistic.objects.get(id=1)
+        weighted_rate = (stat.rate * stat.total_coins + instance.rate * instance.amount ) / ( stat.total_coins + instance.amount)
+        stat.total_escrows += 1
+        stat.total_coins += instance.amount
+        stat.rate = weighted_rate
+        stat.save()
