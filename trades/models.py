@@ -8,6 +8,9 @@ class CompletedTrade(models.Model):
     seller = models.CharField(max_length=63)
     amount = models.PositiveBigIntegerField()
     rate = models.IntegerField()
+    
+    buyer_public = models.BooleanField(default=False)
+    seller_public = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
