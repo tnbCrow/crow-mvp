@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('uuid', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('buyer', models.CharField(max_length=63)),
                 ('seller', models.CharField(max_length=63)),
-                ('amount', models.PositiveBigIntegerField()),
+                ('amount', models.PositiveIntegerField()),
                 ('rate', models.IntegerField()),
                 ('buyer_public', models.BooleanField(default=False)),
                 ('seller_public', models.BooleanField(default=False)),

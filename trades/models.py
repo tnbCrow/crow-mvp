@@ -10,7 +10,7 @@ class CompletedTrade(models.Model):
     buyer = models.CharField(max_length=63)
     seller = models.CharField(max_length=63)
     agent = models.CharField(max_length=63)
-    amount = models.PositiveBigIntegerField()
+    amount = models.PositiveIntegerField()
     rate = models.IntegerField()
     
     buyer_public = models.BooleanField(default=False)
