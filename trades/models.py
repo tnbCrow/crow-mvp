@@ -27,6 +27,7 @@ class CompletedTrade(models.Model):
 class Statistic(models.Model):
     total_escrows = models.IntegerField()
     total_coins = models.IntegerField()
+    total_transactions = models.IntegerField()
     rate = models.IntegerField()
 
     def __str__(self):
@@ -40,5 +41,6 @@ def save_statistics(sender, instance, created, **kwargs):
         weighted_rate = (stat.rate * stat.total_coins + instance.rate * instance.amount ) / ( stat.total_coins + instance.amount)
         stat.total_escrows += 1
         stat.total_coins += instance.amount
+        stat.total_transactions += instance.amount * instance.rate / 10000
         stat.rate = weighted_rate
         stat.save()
