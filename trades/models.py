@@ -37,8 +37,16 @@ class Statistic(models.Model):
 def save_statistics(sender, instance, created, **kwargs):
     
     if created:
+        total_coins = 0
+        transaction = 0
+        
         stat = Statistic.objects.get(id=1)
-        weighted_rate = (stat.rate * stat.total_coins + instance.rate * instance.amount ) / ( stat.total_coins + instance.amount)
+        completed_trades = CompletedTrade.objects.all().order_by('-created_at')[:20]
+        for trades in completed_trades:
+            transaction += (trades.rate * trades.amount)
+            total_coins += trades.amount
+
+        weighted_rate = transaction / total_coins
         stat.total_escrows += 1
         stat.total_coins += instance.amount
         stat.total_transactions += instance.amount * instance.rate / 10000
