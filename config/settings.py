@@ -4,11 +4,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f*+g!w2q)7o%48)#&6=)_jr)m9kc9f^6)-sexxabj2ws6!2i%)'
+SECRET_KEY = os.environ.get('SECRET_KEY', os.urandom(24))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
