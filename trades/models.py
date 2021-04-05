@@ -39,7 +39,7 @@ def save_statistics(sender, instance, created, **kwargs):
     if created:
         total_coins = 0
         transaction = 0
-        
+
         stat = Statistic.objects.get(id=1)
         completed_trades = CompletedTrade.objects.all().order_by('-created_at')[:20]
         for trades in completed_trades:
