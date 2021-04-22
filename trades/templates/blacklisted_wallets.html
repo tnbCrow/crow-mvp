@@ -1,0 +1,80 @@
+{% load static %}
+{% load humanize %}
+{% load app_filters %}
+
+<link rel="icon" href="{% static 'favicon.ico' %}"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
+<link href="{% static 'trades/css/argon.css' %}" rel="stylesheet">
+
+<meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+<title>escrow for TNBC | tnbCrow</title>
+<meta name="description" content="We provide escrow services to buyer and seller for secure transaction of TNBC." />
+
+<meta property="twitter:image" content="{% static 'og.png' %}">
+<meta property="og:image" content="{% static 'og.png' %}">
+
+<body class="bg-default">
+<!-- Navbar info -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light position-sticky fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}"><img width="150" src="{% static 'logo_wordmark.png' %}"> </a>
+            <a class="nav-link nav-link-icon ml-auto" href="{% url 'blacklistedaccounts' %}">
+                Blacklisted Wallets
+            </a>
+            <a class="nav-link nav-link-icon" href="https://discord.com/invite/4uQ24mNxXj" target="_blank">
+            <i class="fab fa-discord fa-lg"></i>
+            </a>
+            <a class="nav-link nav-link-icon" href="https://twitter.com/tnbcrow" target="_blank">
+                <i class="fab fa-twitter-square fa-lg"></i>
+            </a>
+            </div>
+        </div>
+    </nav>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header border-0">
+              <h3 class="mb-0">Blacklisted Wallets</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Account Number</th>
+                    <th scope="col">Added At</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for info in object_list.wallets %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">{{ info.account_number }}</span>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <span class="mb-0 text-sm">{{ info.created_at|naturaltime }}</span>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer py-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

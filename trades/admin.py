@@ -5,3 +5,4 @@ from . import models
 admin.site.register(models.CompletedTrade)
 admin.site.register(models.Statistic)
 admin.site.register(models.BackupStatistic)
+admin.site.register(models.BlacklistedWallet)
