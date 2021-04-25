@@ -29,6 +29,8 @@ class Statistic(models.Model):
     total_coins = models.IntegerField()
     total_transactions = models.IntegerField()
     rate = models.IntegerField()
+    
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.rate}'
