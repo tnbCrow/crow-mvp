@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.views import generic
 
+from rest_framework import viewsets
+
 from .models import CompletedTrade, Statistic, BlacklistedWallet
+from .serializers import StatisticSerializer
 
 # Create your views here.
 class Home(generic.ListView):
@@ -27,3 +30,11 @@ class BlacklistedWallets(generic.ListView):
             'wallets' : wallets,
         }
         return query_set
+
+
+class StatisticViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    ViewSet for Statistic.
+    """
+    queryset = Statistic.objects.all()
+    serializer_class = StatisticSerializer
