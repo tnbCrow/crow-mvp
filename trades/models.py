@@ -28,22 +28,24 @@ class Statistic(models.Model):
     total_escrows = models.IntegerField()
     total_coins = models.IntegerField()
     total_transactions = models.IntegerField()
-    rate = models.IntegerField()
-    
+    weighted_rate = models.IntegerField()
+    last_rate = models.IntegerField()
+
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.rate}'
+        return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.weighted_rate}'
 
 
 class BackupStatistic(models.Model):
     total_escrows = models.IntegerField()
     total_coins = models.IntegerField()
     total_transactions = models.IntegerField()
-    rate = models.IntegerField()
+    weighted_rate = models.IntegerField()
+    last_rate = models.IntegerField()
 
     def __str__(self):
-        return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.rate}'
+        return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.weighted_rate}'
 
 @receiver(post_save, sender=CompletedTrade)
 def save_statistics(sender, instance, created, **kwargs):
@@ -62,11 +64,13 @@ def save_statistics(sender, instance, created, **kwargs):
         stat.total_escrows += 1
         stat.total_coins += instance.amount
         stat.total_transactions += instance.amount * instance.rate / 10000
-        stat.rate = weighted_rate
+        stat.weighted_rate = weighted_rate
+        stat.last_rate = instance.rate
         BackupStatistic.objects.create(total_escrows = stat.total_escrows,
                                        total_coins = stat.total_coins,
                                        total_transactions = stat.total_transactions,
-                                       rate = stat.rate)
+                                       weighted_rate = stat.weighted_rate,
+                                       last_rate = stat.last_rate)
         stat.save()
 
 
