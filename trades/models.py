@@ -47,6 +47,27 @@ class BackupStatistic(models.Model):
     def __str__(self):
         return f'Trades:{self.total_escrows}, Coins:{self.total_coins}, Rate:{self.weighted_rate}'
 
+
+class BlacklistedWallet(models.Model):
+    account_number = models.CharField(max_length=64)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.account_number
+
+
+class Agent(models.Model):
+
+    discord_username = models.CharField(max_length=37)
+    github_username = models.CharField(max_length=39, blank=True, null=True)
+    twitter_username = models.CharField(max_length=15, blank=True, null=True)
+
+    def __str__(self):
+        return self.discord_username
+
+
 @receiver(post_save, sender=CompletedTrade)
 def save_statistics(sender, instance, created, **kwargs):
     
@@ -72,14 +93,3 @@ def save_statistics(sender, instance, created, **kwargs):
                                        weighted_rate = stat.weighted_rate,
                                        last_rate = stat.last_rate)
         stat.save()
-
-
-class BlacklistedWallet(models.Model):
-
-    account_number = models.CharField(max_length=64)
-    
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.account_number

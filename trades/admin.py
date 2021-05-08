@@ -1,8 +1,9 @@
 from django.contrib import admin
-from . import models
+from .models import CompletedTrade, Statistic, BackupStatistic, BlacklistedWallet, Agent
 
 # Register your models here.
-admin.site.register(models.CompletedTrade)
-admin.site.register(models.Statistic)
-admin.site.register(models.BackupStatistic)
-admin.site.register(models.BlacklistedWallet)
+admin.site.register(CompletedTrade)
+admin.site.register(Statistic)
+admin.site.register(BackupStatistic)
+admin.site.register(BlacklistedWallet)
+admin.site.register(Agent)
