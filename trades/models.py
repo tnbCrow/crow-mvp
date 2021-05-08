@@ -4,12 +4,23 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-# Create your models here.
+
+class Agent(models.Model):
+
+    discord_username = models.CharField(max_length=37)
+    github_username = models.CharField(max_length=39, blank=True, null=True)
+    twitter_username = models.CharField(max_length=15, blank=True, null=True)
+
+    def __str__(self):
+        return self.discord_username
+
+
 class CompletedTrade(models.Model):
     uuid = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     buyer = models.CharField(max_length=63)
     seller = models.CharField(max_length=63)
     agent = models.CharField(max_length=63)
+    escrower = models.ForeignKey(Agent, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField()
     rate = models.IntegerField()
     
@@ -56,16 +67,6 @@ class BlacklistedWallet(models.Model):
 
     def __str__(self):
         return self.account_number
-
-
-class Agent(models.Model):
-
-    discord_username = models.CharField(max_length=37)
-    github_username = models.CharField(max_length=39, blank=True, null=True)
-    twitter_username = models.CharField(max_length=15, blank=True, null=True)
-
-    def __str__(self):
-        return self.discord_username
 
 
 @receiver(post_save, sender=CompletedTrade)
