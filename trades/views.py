@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.views import generic
 
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 
 from .models import CompletedTrade, Statistic, BlacklistedWallet
-from .serializers import StatisticSerializer
+from .serializers import StatisticSerializer, RecentTradeSerializer
 
 # Create your views here.
 class Home(generic.ListView):
@@ -19,6 +19,7 @@ class Home(generic.ListView):
             'stats' : stats,
         }
         return query_set
+
 
 class BlacklistedWallets(generic.ListView):
     template_name = 'blacklisted_wallets.html'
@@ -38,3 +39,11 @@ class StatisticViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Statistic.objects.all()
     serializer_class = StatisticSerializer
+
+
+class RecentTradeViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+    """
+    ViewSet for Recent Trades.
+    """
+    queryset = CompletedTrade.objects.all()
+    serializer_class = RecentTradeSerializer
