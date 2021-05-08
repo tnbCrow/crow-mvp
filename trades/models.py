@@ -19,7 +19,6 @@ class CompletedTrade(models.Model):
     uuid = models.UUIDField(default=uuid4, editable=False, primary_key=True)
     buyer = models.CharField(max_length=63)
     seller = models.CharField(max_length=63)
-    agent = models.CharField(max_length=63)
     escrower = models.ForeignKey(Agent, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField()
     rate = models.IntegerField()
