@@ -14,4 +14,4 @@ class RecentTradeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CompletedTrade
-        fields = ('uuid', 'agent', 'amount', 'rate', 'created_at')
+        fields = ('uuid', 'escrower', 'amount', 'rate', 'created_at')
