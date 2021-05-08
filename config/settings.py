@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'django_filters',
 
     'trades',
 ]
@@ -75,6 +76,10 @@ DATABASES = {
 
 
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.backends.DjangoFilterBackend',
+        'rest_framework.filters.OrderingFilter',
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
