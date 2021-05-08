@@ -11,8 +11,8 @@ class StatisticSerializer(serializers.ModelSerializer):
 
 
 class RecentTradeSerializer(serializers.ModelSerializer):
-    escrower = serializers.CharField(source='escrower.discord_username', read_only=True)
+    agent = serializers.CharField(source='agent.discord_username', read_only=True)
 
     class Meta:
         model = CompletedTrade
-        fields = ('uuid', 'escrower', 'amount', 'rate', 'created_at')
+        fields = ('uuid', 'agent', 'amount', 'rate', 'created_at')
