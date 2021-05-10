@@ -45,5 +45,5 @@ class RecentTradeViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     ViewSet for Recent Trades.
     """
-    queryset = CompletedTrade.objects.order_by('-updated_at')
+    queryset = CompletedTrade.objects.all().order_by('-created_at')
     serializer_class = RecentTradeSerializer
