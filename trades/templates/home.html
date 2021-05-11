@@ -19,10 +19,7 @@
     <nav class="navbar navbar-expand-lg bg-white navbar-light position-sticky fixed-top shadow">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}"><img width="150" src="{% static 'logo_wordmark.png' %}"> </a>
-            <a class="nav-link nav-link-icon ml-auto" href="{% url 'blacklistedaccounts' %}">
-                Blacklisted Wallets
-            </a>
-            <a class="nav-link nav-link-icon" href="https://discord.com/invite/4uQ24mNxXj" target="_blank">
+            <a class="nav-link nav-link-icon ml-auto" href="https://discord.com/invite/4uQ24mNxXj" target="_blank">
             <i class="fab fa-discord fa-lg"></i>
             </a>
             <a class="nav-link nav-link-icon" href="https://twitter.com/tnbcrow" target="_blank">
@@ -218,6 +215,9 @@
         <div class="copyright" style='overflow-wrap: break-word;'>
           <p>Shown above are the manual escrows done by tnbCrow verified escrow agents.</p>
           <p>Donate: fee7845b3c38bdf8ba4f2e6a9e91f194c883aafae211b5b9ad8fde161b02d996 </p>
+          <a class="nav-link nav-link-icon" href="{% url 'blacklistedaccounts' %}">
+                Blacklisted Wallets
+          </a>
           <a class="nav-link nav-link-icon" href="{% url 'statistic-list' %}">
                 Stats API
           </a>
