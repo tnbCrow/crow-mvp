@@ -9,7 +9,6 @@ Clone the repo.
 Activate virtual environment.
 
 Install the requirements.
-To run all tests in parallel:
 ```shell
 pip install -r requirements.txt
 ```
