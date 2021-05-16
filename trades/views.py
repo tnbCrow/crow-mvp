@@ -12,7 +12,7 @@ class Home(generic.ListView):
 
     def get_queryset(self):
         trades = CompletedTrade.objects.all().order_by('-created_at')[:8]
-        stats = Statistic.objects.get(id=1)
+        stats = Statistic.objects.first()
 
         query_set = {
             'trades' : trades,
@@ -47,3 +47,7 @@ class RecentTradeViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     queryset = CompletedTrade.objects.all().order_by('-created_at')
     serializer_class = RecentTradeSerializer
+
+
+def about_us(request):
+    return render(request, 'about_us.html')
