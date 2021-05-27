@@ -1,0 +1,61 @@
+{% load static %}
+{% load humanize %}
+{% load app_filters %}
+
+<link rel="icon" href="{% static 'favicon.ico' %}"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" rel="stylesheet">
+<link href="{% static 'trades/css/argon.css' %}" rel="stylesheet">
+
+<meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+<title>escrow for TNBC | tnbCrow</title>
+<meta name="description" content="We provide escrow services to buyer and seller for secure transaction of TNBC." />
+
+<meta property="twitter:image" content="{% static 'og.png' %}">
+<meta property="og:image" content="{% static 'og.png' %}">
+
+<body>
+<!-- Navbar info -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light position-sticky fixed-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}"><img width="150" src="{% static 'logo_wordmark.png' %}"> </a>
+            <a class="nav-link nav-link-icon ml-auto" href="https://discord.com/invite/4uQ24mNxXj" target="_blank">
+            <i class="fab fa-discord fa-lg"></i>
+            </a>
+            <a class="nav-link nav-link-icon" href="https://twitter.com/tnbcrow" target="_blank">
+                <i class="fab fa-twitter-square fa-lg"></i>
+            </a>
+            </div>
+        </div>
+    </nav>
+  <div class="bg-default main-content">
+    <div class="header pb-8 pt-5 pt-md-5">
+        <div class="container">
+            <h1 class="text-center text-white">Legal Disclaimer</h2>
+            <p class="text-white"><b>IMPORTANT DISCLAIMER:</b> All content provided herein our website, hyperlinked sites, associated applications, forums, blogs, social media accounts and other platforms (“Site”) is for your general information only, procured primarily from the community members. We make no warranties of any kind in relation to our content and services (such as token swap functionalities), including but not limited to accuracy, security and updatedness. No part of the content and services that we provide constitutes financial advice, legal advice or any other form of advice meant for your specific reliance for any purpose, nor any dealing in (or promotion of) securities for which a licence is required from the Monetary Authority of Singapore. Any use or reliance on our content and services is solely at your own risk and discretion. You should conduct your own research, review, analyse and verify our content and services before relying on or using them. Trading is a highly risky activity that can lead to major losses, please therefore consult your financial advisor before making any decision. No content on our Site is meant to be a solicitation or offer.</p>
+        </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright" style='overflow-wrap: break-word;'>
+          <p>Donate: fee7845b3c38bdf8ba4f2e6a9e91f194c883aafae211b5b9ad8fde161b02d996 </p>
+          <a class="nav-link nav-link-icon" href="{% url 'blacklistedaccounts' %}">
+                Blacklisted Wallets
+          </a>
+          <a class="nav-link nav-link-icon" href="{% url 'statistic-list' %}">
+                Stats API
+          </a>
+          <a class="nav-link nav-link-icon" href="{% url 'completedtrade-list' %}">
+                Recent Trade API
+          </a>
+          <a class="nav-link nav-link-icon" href="{% url 'legal-disclaimer' %}">
+                Legal Disclaimer
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
