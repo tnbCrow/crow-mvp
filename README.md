@@ -1,4 +1,4 @@
-Minimal Dashboard to show manual escrow data
+Minimal Dashboard to show manual escrow data driven by community.
 
 Live Site: http://tnbcrow.pythonanywhere.com/
 

@@ -51,3 +51,7 @@ class RecentTradeViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
 
 def about_us(request):
     return render(request, 'about_us.html')
+
+
+def legal(request):
+    return render(request, 'legal.html')
