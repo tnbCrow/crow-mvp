@@ -80,8 +80,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Weighted Average Rate</h5>
-                      <span class="h2 font-weight-bold mb-0">${{ object_list.stats.weighted_rate|div:10000 }}</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Max Supply</h5>
+                      <span class="h2 font-weight-bold mb-0">${{ object_list.stats.max_supply|intcomma }}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -90,7 +90,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-nowrap">Last 20 escrows</span>
+                    <span class="text-nowrap">of TNBC</span>
                   </p>
                 </div>
               </div>
@@ -100,8 +100,8 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Over</h5>
-                      <span class="h2 font-weight-bold mb-0">${{ object_list.stats.total_transactions|intcomma }}</span>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Circulating Supply</h5>
+                      <span class="h2 font-weight-bold mb-0">${{ object_list.stats.circulating_supply|intcomma }}</span>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -110,7 +110,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-nowrap">in Transactions Escrowed</span>
+                    <span class="text-nowrap">of TNBC</span>
                   </p>
                 </div>
               </div>
