@@ -40,6 +40,8 @@ class Statistic(models.Model):
     total_transactions = models.IntegerField()
     weighted_rate = models.IntegerField()
     last_rate = models.IntegerField()
+    max_supply = models.IntegerField(default=0)
+    circulating_supply = models.IntegerField(default=0)
 
     updated_at = models.DateTimeField(auto_now=True)
 
