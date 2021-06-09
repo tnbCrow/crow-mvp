@@ -8,7 +8,7 @@
 <link href="{% static 'trades/css/argon.css' %}" rel="stylesheet">
 
 <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
-<title>escrow for TNBC | tnbCrow</title>
+<title>tnbCrow</title>
 <meta name="description" content="We provide escrow services to buyer and seller for secure transaction of TNBC." />
 
 <meta property="twitter:image" content="{% static 'og.png' %}">
@@ -31,7 +31,7 @@
   <div class="main-content">
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-5">
       <div class="container-fluid">
-        <h2 class="mb-5 text-white">Manual escrow statistics</h2>
+        <h2 class="mb-5 text-white">Recent Community Trades</h2>
         {% if object_list.stats %}
         <div class="header-body">
           <div class="row">
@@ -40,7 +40,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Escrows</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">Trades</h5>
                       <span class="h2 font-weight-bold mb-0">{{ object_list.stats.total_escrows|intcomma }}</span>
                     </div>
                     <div class="col-auto">
@@ -50,7 +50,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-nowrap">Total Escrows Completed</span>
+                    <span class="text-nowrap">Total Verified Trades</span>
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-nowrap">Total coins escrowed</span>
+                    <span class="text-nowrap">Total coins traded</span>
                   </p>
                 </div>
               </div>
@@ -138,7 +138,6 @@
                   <tr>
                     <th scope="col">Buyer</th>
                     <th scope="col">Seller</th>
-                    <th scope="col">Agent</th>
                     <th scope="col">Rate</th>
                     <th scope="col">Amount</th>
                     <th scope="col">At</th>
@@ -163,17 +162,6 @@
                         <div class="media-body">
                         {% if info.seller_public %}
                           <span class="mb-0 text-sm">{{ info.seller }}</span>
-                        {% else %}
-                          <span class="mb-0 text-sm">****</span>
-                        {% endif%}
-                        </div>
-                      </div>
-                    </th>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                        {% if info.agent_public %}
-                          <span class="mb-0 text-sm">{{ info.agent.discord_username }}</span>
                         {% else %}
                           <span class="mb-0 text-sm">****</span>
                         {% endif%}
