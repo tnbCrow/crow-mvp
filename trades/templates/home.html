@@ -238,11 +238,19 @@
           labels: time,
           datasets: [{
               data: price,
-              label: 'TNBC Price Chart',
+              label: 'TNBC Price',
               borderColor: 'rgb(75, 192, 192)',
               backgroundColor: 'rgba(0, 0, 0)',
               tension: 0.1
           }]
       },
+      options: {
+        scales: {
+            y: {suggestedMin: 0},
+            xAxis: {
+                display: false,
+            }
+        }
+    }
   });
 </script>
