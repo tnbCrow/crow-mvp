@@ -13,10 +13,12 @@ class Home(generic.ListView):
     def get_queryset(self):
         trades = CompletedTrade.objects.all().order_by('-created_at')[:8]
         stats = Statistic.objects.first()
+        all_trades = CompletedTrade.objects.all().order_by('created_at')
 
         query_set = {
             'trades' : trades,
             'stats' : stats,
+            'all_trades': all_trades,
         }
         return query_set
 
