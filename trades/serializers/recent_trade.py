@@ -1,13 +1,6 @@
 from rest_framework import serializers
 
-from .models import Statistic, CompletedTrade
-
-
-class StatisticSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Statistic
-        fields = ('__all__')
+from ..models.completed_trade import CompletedTrade
 
 
 class RecentTradeSerializer(serializers.ModelSerializer):
