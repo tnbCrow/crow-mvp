@@ -19,4 +19,4 @@ urlpatterns = [
 router = SimpleRouter(trailing_slash=False)
 router.register('statistics', StatisticViewSet)
 router.register('recent-trades', RecentTradeViewSet)
-router.register('offers', BrokerageOfferViewSet)
+router.register('orders', BrokerageOfferViewSet)
