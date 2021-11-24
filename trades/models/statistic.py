@@ -7,6 +7,7 @@ from .completed_trade import CompletedTrade
 
 
 class Statistic(models.Model):
+
     total_escrows = models.IntegerField()
     total_coins = models.IntegerField()
     total_transactions = models.IntegerField()
@@ -14,6 +15,8 @@ class Statistic(models.Model):
     last_rate = models.IntegerField()
     max_supply = models.IntegerField(default=0)
     circulating_supply = models.IntegerField(default=0)
+
+    api_key = models.CharField(max_length=255)
 
     updated_at = models.DateTimeField(auto_now=True)
 
