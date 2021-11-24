@@ -1,13 +1,12 @@
-from rest_framework import viewsets, mixins, filters
+from rest_framework import views, viewsets, mixins, filters, generics
 
 from ..models.completed_trade import CompletedTrade
 from ..serializers.recent_trade import RecentTradeSerializer
 
 
-class RecentTradeViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    """
-    ViewSet for Recent Trades.
-    """
+class RecentTradeViewSet(generics.ListCreateAPIView,
+                         viewsets.GenericViewSet):
+
     queryset = CompletedTrade.objects.all().order_by('-created_at')
     serializer_class = RecentTradeSerializer
     filter_backends = [filters.OrderingFilter]

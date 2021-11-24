@@ -7,9 +7,9 @@ from .agent import Agent
 
 class CompletedTrade(models.Model):
     uuid = models.UUIDField(default=uuid4, editable=False, primary_key=True)
-    buyer = models.CharField(max_length=63)
-    seller = models.CharField(max_length=63)
-    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
+    buyer = models.CharField(max_length=63, null=True, blank=True)
+    seller = models.CharField(max_length=63, null=True, blank=True)
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE, null=True, blank=True)
     amount = models.PositiveIntegerField()
     rate = models.IntegerField()
 
