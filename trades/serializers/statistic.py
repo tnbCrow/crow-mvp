@@ -7,4 +7,4 @@ class StatisticSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Statistic
-        fields = ('__all__')
+        exclude = ('api_key',)
