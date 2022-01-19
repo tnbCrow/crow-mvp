@@ -1,4 +1,5 @@
 from rest_framework import views, viewsets, mixins, filters, generics
+from ..pagination import StandardResultsSetPagination
 
 from ..models.completed_trade import CompletedTrade
 from ..serializers.recent_trade import RecentTradeSerializer
@@ -11,3 +12,4 @@ class RecentTradeViewSet(generics.ListCreateAPIView,
     serializer_class = RecentTradeSerializer
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['rate', 'created_at']
+    pagination_class = StandardResultsSetPagination

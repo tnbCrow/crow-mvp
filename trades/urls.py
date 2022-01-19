@@ -6,7 +6,7 @@ from .views.home import Home, about_us, legal
 from .views.blacklisted_wallet import BlacklistedWalletViewSet
 from .views.statistic import StatisticViewSet
 from .views.recent_trade import RecentTradeViewSet
-from .views.brokerage_offer import BrokerageOfferViewSet
+from .views.market_chart import MarketChartViewSet
 
 
 urlpatterns = [
@@ -19,4 +19,4 @@ urlpatterns = [
 router = SimpleRouter(trailing_slash=False)
 router.register('statistics', StatisticViewSet)
 router.register('recent-trades', RecentTradeViewSet)
-router.register('orders', BrokerageOfferViewSet)
+router.register('market-chart', MarketChartViewSet)
